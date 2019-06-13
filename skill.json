@@ -1,0 +1,125 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "cat feeder",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "FeedCats",
+                    "slots": [
+                        {
+                            "name": "seconds",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{seconds} seconds",
+                                "For {seconds} seconds"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Feed Fox for {seconds} seconds",
+                        "Feed Cats for {seconds} seconds",
+                        "Feed Moosh for {seconds} seconds",
+                        "Feed my cats for {seconds} seconds",
+                        "Please Feed my Cats for {seconds} seconds",
+                        "Please Feed my Cats",
+                        "Feed My Cats",
+                        "Feed Cats",
+                        "Feed Fox",
+                        "Feed Moosh"
+                    ]
+                },
+                {
+                    "name": "LastFeed",
+                    "slots": [],
+                    "samples": [
+                        "last time the cats ate",
+                        "last time fox ate",
+                        "last time moosh ate",
+                        "last time moosh was fed",
+                        "last feed time",
+                        "last time cats were fed"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "FeedCats",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.444156111446"
+                    },
+                    "slots": [
+                        {
+                            "name": "seconds",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.889226062474.610816977457",
+                                "elicitation": "Elicit.Slot.889226062474.610816977457"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.1256448008963",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure that you want to feed the cats?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.889226062474.610816977457",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How Long Would You Like to Feed?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "For How Long?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.889226062474.610816977457",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.444156111446",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "are you sure"
+                    }
+                ]
+            }
+        ]
+    }
+}
